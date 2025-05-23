@@ -204,7 +204,7 @@ EOF
     
     # Push to GitHub
     print_info "📤 Pushing initial commit to GitHub..."
-    git push -u origin main
+    git push -u origin main --force
     
     # Go back to parent directory
     cd ..
@@ -293,6 +293,9 @@ main() {
     # Remove the local directory (we'll get it back as a submodule)
     print_info "🧹 Cleaning up local directory..."
     rm -rf "$experiment_name"
+    
+    # Clean up any git cache references to the directory
+    git rm --cached "$experiment_name" 2>/dev/null || true
     
     print_info "🔗 Adding as submodule..."
     
