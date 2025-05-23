@@ -1,0 +1,3 @@
+[submodule "precision-based-rating"]
+	path = precision-based-rating
+	url = https://github.com/sunnybak/precision-based-sampling.git
