@@ -94,7 +94,6 @@ create_initial_repo() {
     cd "$experiment_name"
     
     git init
-    git remote add origin "$github_url"
     
     # Create initial README.md
     cat > README.md << EOF
@@ -196,6 +195,12 @@ EOF
     # Add all files and make initial commit
     git add .
     git commit -m "Initial commit for $experiment_name experiment"
+    
+    # Rename branch to main (GitHub standard)
+    git branch -M main
+    
+    # Add remote origin
+    git remote add origin "$github_url"
     
     # Push to GitHub
     print_info "📤 Pushing initial commit to GitHub..."
