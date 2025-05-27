@@ -300,7 +300,7 @@ main() {
     print_info "🔗 Adding as submodule..."
     
     # Add the submodule
-    if git submodule add "$github_url" "$experiment_name"; then
+    if git submodule add "$github_url" "$experiment_name" --force; then
         print_success "Submodule added successfully"
     else
         print_error "Failed to add submodule. Repository might not be accessible."
